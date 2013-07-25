@@ -12,6 +12,10 @@ import java.sql.Statement;
  *
  * -> create table emp(id number(10),name varchar2(40),age number(3));
  *
+ * and
+ *
+ * insert into emp values (1, 'John', 44);
+ *
  * You also need to download the Oracle JDBC Driver and install it in Maven
  *
  * mvn install:install-file -Dfile={Path/to/your/ojdbc.jar} -DgroupId=com.oracle -DartifactId=ojdbc6 -Dversion=11.2.0 -Dpackaging=jar
@@ -32,6 +36,8 @@ public class App {
             Statement stmt = con.createStatement();
 
             //step4 execute query
+            Boolean ret = stmt.execute("insert into emp values (1, \'John\', 43)");
+
             ResultSet rs = stmt.executeQuery("select * from emp");
             while (rs.next())
                 System.out.println(rs.getInt(1) + "  " + rs.getString(2) + "  " + rs.getString(3));
