@@ -40,7 +40,7 @@ public class App {
             Statement stmt = con.createStatement();
 
             //step4 execute query
-            Boolean ret = stmt.execute("insert into emp values (1, \'John\', 43)");
+            stmt.executeUpdate("insert into emp values (1, \'John\', 45)");
             int num = stmt.getUpdateCount() ;
 
             System.out.println( num + " rows affected" ) ;
